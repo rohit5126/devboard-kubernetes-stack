@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: firstpod 
+  labels:
+    app: myapp
+  namespace: dev
+spec:
+  containers: 
+    - name: nginx
+      image: nginx:latest
+      ports:
+        - containerPort: 80
+
+      volumeMounts:
+        - name: config-volume
+          mountPath: "/mnt"
+          readOnly: true 
+        - name: data  
+          mountPath: /usr/share #this is container path
+  volumes:
+    - name: config-volume
+      configMap:
+        name: live-config
+    - name: data
+      persistentVolumeClaim:
+        claimName: pvc-standard

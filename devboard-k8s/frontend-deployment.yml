@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+  labels:
+    apps: frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      apps: frontend
+  template:
+    metadata:
+      labels:
+        apps: frontend
+    spec:
+      containers:
+        - name: frontend-devboard
+          image: rohit5126/devboard-frontend:latest
+          ports:
+            - containerPort: 4173
