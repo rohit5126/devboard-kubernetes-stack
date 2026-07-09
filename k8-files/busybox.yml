@@ -4,7 +4,6 @@ metadata:
   name: busybox
   labels:
     app: myapp
-  namespace: prod
 spec:
   containers:
     - name: busybox

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hl-scv 
+spec:
+  type: ClusterIP
+  clusterIP: None
+  selector:
+    apps: postgres
+  ports:
+    - port: 8080
+      targetPort: 80
