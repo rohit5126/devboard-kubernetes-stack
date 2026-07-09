@@ -11,7 +11,6 @@ spec:
       image: nginx:latest
       ports:
         - containerPort: 80
-
       volumeMounts:
         - name: config-volume
           mountPath: "/mnt"
