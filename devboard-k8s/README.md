@@ -110,8 +110,7 @@ kubectl create configmap pg-config \
 ### 3️⃣ Deploy PostgreSQL
 
 ```bash
-kubectl apply -f postgres.yml
-kubectl apply -f pg-service.yml
+kubectl apply -f postgres-statefulset.yml 
 ```
 
 ---
@@ -167,8 +166,9 @@ kubectl apply -f frontend-service.yml
 
 ```bash
 
- kubectl delete deployments backend-deployment frontend-deployment postgres-deployment 
- kubectl delete svc backend frontend-service postgres 
+ kubectl delete deployments backend-deployment frontend-deployment
+ kubectl delete statefulsets postgres
+ kubectl delete svc backend frontend-service 
  kubectl delete configmaps pg-config 
  kubectl delete secrets pg-sec
 
