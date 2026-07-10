@@ -5,7 +5,7 @@ metadata:
   labels:
     apps: frontend
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       apps: frontend
@@ -19,3 +19,10 @@ spec:
           image: rohit5126/devboard-frontend:latest
           ports:
             - containerPort: 4173
+          resources:
+            requests:
+              cpu: 50m
+              memory: 128Mi
+            limits:
+              cpu: 100m
+              memory: 256Mi
